@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101214">
+  <meta name="description" content="SHISHU — an archive of the stories and memories that stay with us.">
+  <title>SHISHU — Some stories stay forever</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip intro</a>
+  <section class="intro" id="intro" aria-label="SHISHU opening">
+    <video class="intro__video" id="introVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/naruto-intro.mp4" type="video/mp4">
+    </video>
+    <div class="intro__shade"></div>
+    <div class="intro__grain"></div>
+    <div class="intro__content">
+      <p class="eyebrow intro__eyebrow">A NARUTO MEMORY ARCHIVE</p>
+      <div class="wordmark wordmark--intro">SHISHU<span class="wordmark__dot">.</span></div>
+      <p class="intro__tagline">Some stories stay forever.</p>
+      <button class="enter-button" id="enterButton" type="button"><span>Explore memories</span><b aria-hidden="true">↓</b></button>
+      <button class="play-button" id="playButton" type="button" hidden>Play opening</button>
+    </div>
+    <span class="intro__index">01 <i></i> A STORY ARCHIVE</span>
+    <span class="intro__credit">A small place for the moments we carry.</span>
+  </section>
+
+  <main id="home" class="site" aria-hidden="true">
+    <header class="topbar">
+      <a class="wordmark wordmark--nav" href="#home" aria-label="SHISHU home">SHISHU<span class="wordmark__dot">.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <nav class="navigation" id="navigation" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#characters">Characters</a><a href="#emotions">Emotions</a><a href="#collections">Collections</a><a href="#about">About</a>
+      </nav>
+      <button class="search-open" id="searchOpen" aria-label="Search the archive"><span class="search-icon"></span><span>Search</span><kbd>⌘ K</kbd></button>
+    </header>
+
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__backdrop"><div class="hero__orb"></div><div class="hero__line"></div></div>
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__line"></span> THE STORIES WE KEEP</p>
+        <h1 id="heroTitle">Some stories are<br>not meant to be <em>forgotten.</em></h1>
+        <p class="hero__description">Discover the stories behind the characters, the moments that broke our hearts, and the memories that stay with us.</p>
+        <a class="button button--light" href="#emotions">Explore stories <span>↗</span></a>
+      </div>
+      <div class="hero__side-note">KONOHA, IN OUR HEARTS <span>—</span> EST. FOREVER</div>
+      <div class="hero__bottom"><span>01 / 07 &nbsp; FEELING</span><span class="scroll-cue">SCROLL TO REMEMBER <i>↓</i></span></div>
+    </section>
+
+    <section class="intro-note section-pad reveal" id="about">
+      <p class="eyebrow">WHY SHISHU EXISTS</p>
+      <div class="intro-note__body"><h2>Not a watchlist.<br><em>A place to remember.</em></h2><p>For the lonely children who found a village in one another. For the bonds that survived distance, silence, and time. SHISHU gathers the moments that made us feel less alone.</p></div>
+    </section>
+
+    <section class="emotion-section section-pad" id="emotions">
+      <div class="section-heading reveal"><div><p class="eyebrow">FOLLOW A FEELING</p><h2>Every heart has<br><em>its own story.</em></h2></div><p class="section-heading__aside">Choose what you came here<br>to feel again.</p></div>
+      <div class="emotion-grid" id="emotionGrid"></div>
+    </section>
+
+    <section class="characters-section section-pad" id="characters">
+      <div class="section-heading reveal"><div><p class="eyebrow">THE ONES WE CARRY</p><h2>People who felt<br><em>like home.</em></h2></div><a class="text-link" href="#collections">View all stories <span>↗</span></a></div>
+      <div class="character-grid" id="characterGrid"></div>
+    </section>
+
+    <section class="quote-section reveal"><span class="quote-mark">“</span><blockquote>When people are protecting something truly special to them, they truly can become as strong as they can be.</blockquote><p>— NARUTO UZUMAKI <span>·</span> A PROMISE KEPT</p></section>
+
+    <section class="collections-section section-pad" id="collections">
+      <div class="section-heading reveal"><div><p class="eyebrow">THE ARCHIVE</p><h2>Moments that<br><em>never leave.</em></h2></div><div class="filter-wrap"><label for="archiveFilter">EXPLORE BY</label><select id="archiveFilter"><option value="all">All memories</option><option value="Naruto">Naruto</option><option value="Naruto: Shippuden">Naruto: Shippuden</option></select></div></div>
+      <div id="episodeList" class="episode-list"></div>
+    </section>
+
+    <section class="closing reveal"><div class="closing__halo"></div><p class="eyebrow">TAKE A MEMORY WITH YOU</p><h2>Some stories<br><em>stay forever.</em></h2><button class="text-link" id="backToTop">Return to the beginning <span>↑</span></button></section>
+    <footer class="footer"><a class="wordmark wordmark--nav" href="#home">SHISHU<span class="wordmark__dot">.</span></a><p>An emotional archive, made with love.<br><span>Independent fan-made project · Not affiliated with Naruto or its rights holders.</span></p><a href="#about">ABOUT THIS ARCHIVE ↑</a></footer>
+  </main>
+
+  <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" id="dialogClose" aria-label="Close story">×</button><div id="dialogContent"></div></dialog>
+  <dialog class="search-dialog" id="searchDialog"><form method="dialog"><label for="searchInput" class="eyebrow">SEARCH THE ARCHIVE</label><button class="dialog-close" aria-label="Close search">×</button><input id="searchInput" type="search" placeholder="A character, a moment, an episode…" autocomplete="off"><div id="searchResults" class="search-results"><p class="muted">Try “Itachi”, “childhood” or “Shippuden 133”.</p></div></form></dialog>
+  <script src="data.js"></script><script src="script.js"></script>
+</body>
+</html>
